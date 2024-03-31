@@ -57,6 +57,12 @@ func Loginuser(c *gin.Context) {
 		return
 	}
 
+	http.SetCookie(c.Writer, &http.Cookie{
+		Name:    "token",
+		Value:   tokenString,
+		Expires: expiration_time,
+	})
+
 	// Send token back to the client
 	c.JSON(http.StatusOK, gin.H{"token": tokenString,
 		"success": "User loggin Successfully"})

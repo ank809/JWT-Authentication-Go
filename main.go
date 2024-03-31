@@ -11,6 +11,7 @@ func main() {
 	router.GET("/", helloworld)
 	router.GET("/signup", controllers.SignupUser)
 	router.GET("/login", controllers.Loginuser)
+	router.GET("/home", controllers.HomePage)
 	router.Run(":8081")
 }
 
